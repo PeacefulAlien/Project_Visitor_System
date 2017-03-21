@@ -8,6 +8,8 @@ class all_personnel():
 		self.mobile_number = mobile_number
 		self.status = bool(input("Are you Here? y or n. ") == 'y')
 	
+#this is some nonesense
+#this is some more nonesense
 	
 	
 if __name__ == "__main__":

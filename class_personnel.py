@@ -6,7 +6,10 @@ class all_personnel():
 		self.full = first + " " + last
 		self.ID_number = ID_number
 		self.mobile_number = mobile_number
-	  
+		self.status = bool(input("Are you Here? y or n. ") == 'y')
+	
+	
+	
 if __name__ == "__main__":
   test_personnel_01 = all_personnel("zao", "sun", "2070", "0763929606")
-  print(test_personnel_01.full)
+  print("{0}{1}".format(test_personnel_01.status, test_personnel_01.full))

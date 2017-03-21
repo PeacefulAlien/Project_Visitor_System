@@ -7,8 +7,10 @@ class all_personnel():
 		self.ID_number = ID_number
 		self.mobile_number = mobile_number
 		self.status = bool(input("Are you Here? y or n. ") == 'y')
-
-#some nonesense	
+	
+#this is some nonesense
+#this is some more nonesense
+	
 	
 if __name__ == "__main__":
   test_personnel_01 = all_personnel("zao", "sun", "2070", "0763929606")

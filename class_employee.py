@@ -17,15 +17,17 @@ import csv
 class employee:
 
 	def __init__(self):
-		self.first_name = None
-		self.last_name = None
-		self.full_name = None
-		self.email = None
-		self.ID = None
-		self.mobilephone = None
-		self.aviliable_list = None
+		self.first_name = []
+		self.last_name = []
+		self.full_name = []
+		self.email = []
+		self.ID = []
+		self.mobilephone = []
+		
+		self.itemdex = []
+		self.aviliable_list = []
 	
-	def read_data():
+	def read_data(self):
 		with open('employee_inlist.csv') as csvfile:
 			employee_inlist = csv.reader(csvfile, delimiter=';')
 			for row in employee_inlist:
@@ -36,27 +38,48 @@ class employee:
 				self.mobilephone.append(row[3])
 		return self.first_name, self.last_name, self.full_name, self.ID, self.mobilephone
 	
-	def find_employee(item):
-		item = input("Please enter the information you have: ")
-		""" Request for an input of the information, potential interface """
-		itemdex = None
-		if item in self.first_name:
-			itemdex.append(self.first_name.index(item))
-		elif item in self.last_name:
-			itemdex.append(self.last_name.index(item))
-		elif item in self.full_name:
-			itemdex.append(self.full_name.index(item))
-		elif item in self.ID:
-			itemdex.append(self.ID.index(item))
-		elif item in self.mobilephone:
-			itemdex.append(self.mobilephone.index(item))
-		else:
-			itemdex.append("Invalid input")
-		return itemdex
-		
-	def checkin_func():
+	def find_employee(self):
+		while True:
+			item = input("Please enter the information you have: ")
+			""" Request for an input of the information, potential interface """
+			if item in self.first_name:
+				self.itemdex.append(self.first_name.index(item))
+				break
+			elif item in self.last_name:
+				self.itemdex.append(self.last_name.index(item))
+				break
+			elif item in self.full_name:
+				self.itemdex.append(self.full_name.index(item))
+				break
+			elif item in self.ID:
+				self.itemdex.append(self.ID.index(item))
+				break
+			elif item in self.mobilephone:
+				self.itemdex.append(self.mobilephone.index(item))
+				break
+			else:
+				print("Information Imcomplete!!!\n")
+		return self.itemdex
+	
+	def demo_employee(self):
+		print("The employee you are looking for is listed below:")
+		for index in self.itemdex:
+			print("{}".format(self.full_name[index]))
+	
+	def checkin_func(self):
 		pass
 	
-	def checkout_func():
+	def checkout_func(self):
 		pass
-	 
+
+		
+"""
+	below is the testing cases
+"""		
+if __name__ == '__main__':
+	for i in range(5):
+		employee_test = employee()
+		employee_test.read_data()
+		employee_test.find_employee()
+		employee_test.demo_employee()
+	

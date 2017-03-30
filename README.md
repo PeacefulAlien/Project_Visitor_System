@@ -1,7 +1,7 @@
 # Project_Visitor_System
 A small project about visitors at the office
 
-Features:
+Features wishlist:
 	Register employee in the office at arrival
 		(Time, Name & ID & Title, Email & Phone, Office Nnumber...)
   
@@ -20,6 +20,7 @@ Features:
 	*...
 
 Scrum Backlog:
-	
+	class_employee
+		
 	
    

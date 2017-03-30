@@ -4,7 +4,8 @@
 	as input and generate datebase for the future usage
 	
 	Method descriptions:
-	read_data(): load the employee_inlist.csv file
+	read_data(): load the employee_inlist.csv file, 
+	it is hard coded, need to find a better way
 	find_employee(): find the desired employee in the database
 	checkin_func(): employee check in at the office
 	checkout_func(): employee check out from the office
@@ -39,7 +40,8 @@ class employee:
 		return self.first_name, self.last_name, self.full_name, self.ID, self.mobilephone
 	
 	def find_employee(self):
-		while True:
+		counter = 0
+		while counter < 3:
 			item = input("Please enter the information you have: ")
 			""" Request for an input of the information, potential interface """
 			if item in self.first_name:
@@ -59,6 +61,7 @@ class employee:
 				break
 			else:
 				print("Information Imcomplete!!!\n")
+				counter += 1
 		return self.itemdex
 	
 	def demo_employee(self):
@@ -67,7 +70,8 @@ class employee:
 			print("{}".format(self.full_name[index]))
 	
 	def checkin_func(self):
-		pass
+		while True:
+			status = input("")
 	
 	def checkout_func(self):
 		pass
@@ -76,10 +80,13 @@ class employee:
 """
 	below is the testing cases
 """		
-if __name__ == '__main__':
-	for i in range(5):
+def test_01_class_employee(iteration):
+	for i in range(iteration):
 		employee_test = employee()
 		employee_test.read_data()
 		employee_test.find_employee()
 		employee_test.demo_employee()
+	
+def test_02_class_employee(iteration):
+	pass
 	

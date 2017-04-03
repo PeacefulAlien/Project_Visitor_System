@@ -19,13 +19,8 @@ Features wishlist:
   
 	*...
 
-Backlog:
-	employee_inlist.csv
-	class_file_loader
-	class_info_editor
-	class_visitor_register
-	class_employee_register
-	*...
+Scrum Backlog:
+	class_employee
 		
 	
    

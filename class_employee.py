@@ -1,4 +1,5 @@
 """
+	obs:This is an abaddoned version.
 	Another approach to implement one of the stories of the project
 	the class_employee basically read the employee_inlist.csv file
 	as input and generate datebase for the future usage

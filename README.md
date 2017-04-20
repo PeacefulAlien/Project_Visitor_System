@@ -17,6 +17,9 @@ Features wishlist:
 	*Booking System
 		(External, Internal...)
   
+	*Reminder System
+		(SMS, Email, Calender...)	
+	
 	*...
 
 Backlog:

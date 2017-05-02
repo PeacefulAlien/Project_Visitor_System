@@ -7,35 +7,43 @@ phone_number: cellphone number for SMS reminder feature, integer
 MAC: MAC address for each individual's working computer, string
 fullname: full name for display feature, string
 email: email address for email reminder feature, string
+path: where is the list of employee information
 *...
 """
 
 
 import csv
+import datetime
 
 
 class employee():
 
-	def __init__(self, ID, first, last, phone_number, MAC):
+	def __init__(self):
 		self.ID = []
 		self.first = []
 		self.last = []
 		self.phone_number = []
 		self.MAC = []
-		
+		self.path = []
+		self.time = []
+	
+	@property
+	def email(self):
+		return '{}.{}@edag.se'.format(self.first, self.last)
+	
 	@property
 	def fullname(self):
 		return '{} {}'.format(self.first, self.last)
 		
-	@property
-	def email(self):
-		return '{}.{}@edag.se'.format(self.first.lower(), self.last.lower())
+	def set_path(self):
+		result = 'n'
+		while result != 'y':
+			self.path = input('Please enter the full address for the initial file --> ')
+			print('{}\nis this the right address for the input file? y/n'.format(self.path))
+			result = input()
+			if result == 'y':
+				break
 	
-	def employee_basic_info_load(self):
-		with open('employee_basic_info.csv') as input_file:
-			if csv.Sniff.has_header(input_file):
-				
-		
-			employee_basic_info = csv.reader(input_file, delimiter=';')
-			for row in employee_basic_info:
-				self.ID.append(row)
+	
+	def file_load(self):
+		pass

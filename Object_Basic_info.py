@@ -45,5 +45,5 @@ class employee():
 				break
 	
 	
-	def file_load(self):
+	def file_loader(self):
 		pass

@@ -1,5 +1,7 @@
 """
 This object will define the basic employee information
+
+Below is the description:
 ID: unique four digits identification number of each individual, integer 
 first: first name, string
 last: last name, string
@@ -11,39 +13,38 @@ path: where is the list of employee information
 *...
 """
 
-
 import csv
 import datetime
+import os
 
 
-class employee():
+class employee:
 
-	def __init__(self):
-		self.ID = []
-		self.first = []
-		self.last = []
-		self.phone_number = []
-		self.MAC = []
-		self.path = []
-		self.time = []
-	
-	@property
-	def email(self):
-		return '{}.{}@edag.se'.format(self.first, self.last)
-	
-	@property
-	def fullname(self):
-		return '{} {}'.format(self.first, self.last)
-		
-	def set_path(self):
-		result = 'n'
-		while result != 'y':
-			self.path = input('Please enter the full address for the initial file --> ')
-			print('{}\nis this the right address for the input file? y/n'.format(self.path))
-			result = input()
-			if result == 'y':
-				break
-	
-	
-	def file_loader(self):
-		pass
+    def __init__(self):
+        self.ID = []
+        self.first = []
+        self.last = []
+        self.phone_number = []
+        self.MAC = []
+        self.path = []
+        self.time = []
+
+    @property
+    def email(self):
+        return '{}.{}@edag.se'.format(self.first, self.last)
+
+    @property
+    def fullname(self):
+        return '{} {}'.format(self.first, self.last)
+
+    def set_path(self):
+        result = 'n'
+        while result != 'y' and self.path != '':
+            self.path = input('Please enter the full address for the initial file --> ')
+            print('{}\nis this the right address for the input file? y/n'.format(self.path))
+            result = input()
+            if result == 'y':
+                break
+
+    def file_loader(self):
+        pass

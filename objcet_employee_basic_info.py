@@ -22,7 +22,6 @@ class EmployeeBasicInfo:
         self.last = []
         self.phone_number = []
         self.MAC = []
-        self.time = []
 
     @property
     def email(self):

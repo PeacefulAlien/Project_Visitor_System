@@ -21,13 +21,14 @@ class FileLoader:
         result = 'n'
         while result != 'y':
             if self.path != '':
-                print("Is this the correct path:{} y/n"
-                      .format(self.path))
+                print("Is this the correct path?\n{}\ny/n".format(self.path))
                 result = input()
-                if result != 'y':
-                    self.path = ''
+                if result == 'y':
+                    break
                 else:
-                    self.path = input("Please enter the full address of the file --> ")
+                    self.path = ''
+            else:
+                self.path = input("Please enter the full path to the file --> ")
 
     def file_loader(self):
         pass

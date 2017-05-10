@@ -35,5 +35,7 @@ import object_file_loader
 # print("New Path:{}\n".format(test03.path))
 
 test04 = object_file_loader.FileLoader()
-test04.set_path()
-print(type(test04.path))
+# test04.set_path()
+# print(type(test04.path))
+#test04.set_size()
+test04.file_loader()

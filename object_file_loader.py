@@ -21,44 +21,58 @@ set_size: the information from input file can be edited from time to time
 
 import os
 import csv
+import objcet_employee_basic_info
 
 
-class FileLoader:
+class FileLoader(objcet_employee_basic_info.EmployeeBasicInfo):
 
     def __init__(self):
+        super().__init__()
         self.path = ''
-        self.width = 10
-        self.height = 10
+        # self.width = 10
+        # self.height = 10
         self.input_list = {}
-        self.header = []
 
     def set_path(self):
         option_01 = 'n'
         while option_01 != 'y':
-            if self.path != '':
-                print("Is this the correct path?\n{}\ny/n".format(self.path))
-                option_01 = input()
-                if option_01 == 'y':
-                    break
-                else:
-                    self.path = ''
+            self.path = os.getcwd()
+            print("Is the input file in this path?\n{}\ny/n ".format(self.path))
+            option_01 = str(input())
+            if option_01 == 'y':
+                print("Current working path is\n -->{}".format(os.getcwd()))
+                break
             else:
-                self.path = input("Please enter the full path to the file --> ")
+                self.path = str(input("Please enter the full path to the input file\n--> "))
+                os.chdir(self.path)
 
-    def set_size(self):
-        option_02 = input("Do you want to change the size of the input list? y/n ")
-        if option_02 == 'y':
-            self.width = input("How many cells do you want in each row --> ")
-            self.height = input("How many rows do you want in the input list --> ")
-        print("Current input list Size: {} by {}".format(self.width, self.height))
+    # def set_size(self):
+    #     option_02 = input("Do you want to change the size of the input list? y/n ")
+    #     if option_02 == 'y':
+    #         self.width = input("How many cells do you want in each row --> ")
+    #         self.height = input("How many rows do you want in the input list --> ")
+    #     print("Current input list Size: {} by {}".format(self.width, self.height))
 
     def file_loader(self):
-        os.chdir('C:\\Users\sunzao\Documents\Python\Project_Visitor_System\input')
+        self.path = 'C:\\Users\sunzao\Documents\Python\Project_Visitor_System\input'
+        os.chdir(self.path)
+        with open('employee_input_list.csv') as csvfile:
+            reader = csv.reader(csvfile)
+            header = next(reader)
+            print(header)
         with open('employee_input_list.csv') as csvfile:
             self.input_list = csv.DictReader(csvfile)
-            self.header = self.input_list.fieldnames
-            for key in self.header:
-                print(self.input_list(key))
+            for row in self.input_list:
+                print(row)
+
+
+
+
+
+
+
+
+
 
 
 

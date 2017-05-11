@@ -17,9 +17,9 @@ email: email address for email reminder feature, string
 class EmployeeBasicInfo:
 
     def __init__(self):
-        self.ID = []
         self.first = []
         self.last = []
+        self.ID = []
         self.phone_number = []
         self.MAC = []
 

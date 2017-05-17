@@ -28,23 +28,47 @@ class FileLoader(objcet_employee_basic_info.EmployeeBasicInfo):
 
     def __init__(self):
         super().__init__()
-        self.path = ''
+        self.file_path = os.getcwd()
+        self.file_name = 'employee_input_list.csv'
+        # self.path = 'C:\\Users\\sunzao\\Documents\\Python\\Project_Visitor_System\\input'
         # self.width = 10
         # self.height = 10
-        self.input_list = {}
 
-    def set_path(self):
+    def set_file_path(self):
         option_01 = 'n'
         while option_01 != 'y':
-            self.path = os.getcwd()
-            print("Is the input file in this path?\n{}\ny/n ".format(self.path))
+            print("Is the input file in this path?\n{}\ny/n ".format(self.file_path))
             option_01 = str(input())
             if option_01 == 'y':
                 print("Current working path is\n -->{}".format(os.getcwd()))
                 break
             else:
-                self.path = str(input("Please enter the full path to the input file\n--> "))
-                os.chdir(self.path)
+                self.file_path = str(input("Please enter the full path to the input file\n--> "))
+                os.chdir(self.file_path)
+
+    def set_file_name(self):
+        option_03 = 'n'
+        while option_03 != 'y':
+            print("Is this the right input file name?\n{}\ny/n ".format(self.file_name))
+            option_03 = str(input())
+            if option_03 == 'y':
+                print("Current input file name is\n --> {}".format(self.file_name))
+                break
+            else:
+                self.file_name = str(input("Please enter the name of the input file\n--> "))
+
+    def file_loader(self):
+        if os.path.isfile(os.path.join(self.file_path, self.file_name)):
+            with open(os.path.join(self.file_path, self.file_name)) as raw:
+                    reader = csv.reader(raw)
+                    header = next(reader)
+                    print(header)
+                    raw.seek(0)
+                    dictreader = csv.DictReader(raw)
+                    for row in dictreader:
+                        print(row)
+        else:
+            print('The required file does not exist at the location!\n')
 
     # def set_size(self):
     #     option_02 = input("Do you want to change the size of the input list? y/n ")
@@ -52,18 +76,6 @@ class FileLoader(objcet_employee_basic_info.EmployeeBasicInfo):
     #         self.width = input("How many cells do you want in each row --> ")
     #         self.height = input("How many rows do you want in the input list --> ")
     #     print("Current input list Size: {} by {}".format(self.width, self.height))
-
-    def file_loader(self):
-        self.path = 'C:\\Users\sunzao\Documents\Python\Project_Visitor_System\input'
-        os.chdir(self.path)
-        with open('employee_input_list.csv') as csvfile:
-            reader = csv.reader(csvfile)
-            header = next(reader)
-            print(header)
-        with open('employee_input_list.csv') as csvfile:
-            self.input_list = csv.DictReader(csvfile)
-            for row in self.input_list:
-                print(row)
 
 
 

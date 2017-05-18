@@ -27,7 +27,7 @@ import csv
 import objcet_database_main
 
 
-class FileLoader(objcet_database_main.DatabaseMain):
+class FileLoader:
 
     def __init__(self):
         super().__init__()
@@ -86,15 +86,29 @@ class FileLoader(objcet_database_main.DatabaseMain):
             raise ValueError('The required file does not exist at the location!')
 
     def file_loader(self):
-        self.basic_info_table_reset()
+        initialization = objcet_database_main.DatabaseMain()
+        initialization.basic_info_table_drop()
         with open(os.path.join(self.file_path, self.file_name)) as raw:
             dialect = csv.Sniffer().sniff(raw.read(1024))
             raw.seek(0)
             reader = csv.reader(raw, delimiter=dialect.delimiter)
-            next(reader, None)
+            header = next(reader)
+            print(header, type(header), type(header[0]))
+            initialization.basic_info_table_init(header)
             for field in reader:
-                self.basic_info_table_data_entry(field)
+                initialization.basic_info_table_data_entry(field)
 
+    # def file_loader_beta(self):
+    #     load_file = objcet_database_main.DatabaseMain()
+    #
+    #     with open(os.path.join(self.file_path, self.file_name)) as raw:
+    #         dialect = csv.Sniffer().sniff(raw.read(1024))
+    #         raw.seek(0)
+    #         reader = csv.reader(raw, delimiter=dialect.delimiter)
+    #         next(reader, None)
+    #         load_file.basic_info_table_init()
+    #         for field in reader:
+    #             initialization.basic_info_table_data_entry(field)
 
 
 

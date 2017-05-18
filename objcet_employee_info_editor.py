@@ -1,7 +1,8 @@
 """
-This object will define the structure for basic employee information
+This object will define the structure for basic employee info,
+manipulate the basic info to all the info needed for the application
 
-Below is the description for each elements:
+Description:
 ID: unique four digits identification number of each individual, integer 
 first: first name, string
 last: last name, string
@@ -10,11 +11,10 @@ MAC: MAC address for each individual's working computer, string
 fullname: full name for display feature, string
 email: email address for email reminder feature, string
 
-*...
 """
 
 
-class EmployeeBasicInfo:
+class EmployeeInfoEditor:
 
     def __init__(self):
         self.first = []
@@ -30,4 +30,6 @@ class EmployeeBasicInfo:
     @property
     def fullname(self):
         return '{} {}'.format(self.first, self.last)
+
+
 

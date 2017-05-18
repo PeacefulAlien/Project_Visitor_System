@@ -19,3 +19,5 @@ test01 = object_input_file_loader.FileLoader()
 test01.file_validation()
 test01.file_loader()
 
+test02 = objcet_database_main.DatabaseMain()
+test02.info_table_drop()

@@ -1,4 +1,4 @@
-First,Last,ID,Phone, MAC
-zao,sun,2070,46763929606,
-test,employee,2001,46760002001,
-fake,employee,2002,46760002002,
+First Name,Last Name,ID,Telephone Number,MAC Address
+Zao,Sun,2070,46763929606,XXXXXXXXX
+TEST,Agent,2001,46760002001,YYYYYYYY
+Fake,Blob,2002,46760002002,ZZZZZZZZ

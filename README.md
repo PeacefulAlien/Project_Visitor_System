@@ -1,34 +1,25 @@
 # Project_Visitor_System
 A small project about visitors at the office
 
-Features wishlist:
+Features Wish list:
 	Register employee in the office at arrival
-		(Time, Name & ID & Title, Email & Phone, Office Nnumber...)
-  
-	Emloyee avialiability
-		(Avialiable list, Individual Status, Time/Schedule, Reminder/invitation...)
-  
-	Register guests when they arrive
+		(Time, Name & ID & Title, Email & Phone, Office Number...)
+	Employee availability
+		(Available list, Individual Status, Time/Schedule, Reminder/invitation...)
+  	Register guests when they arrive
 		(Time, Name, Target Employee...)
-  
-	Meeting Record
-		(Time, Memebers: visitor & Employee)
-  
-	*Booking System
-		(External, Internal...)
-  
-	*Reminder System
+ 	Reminder System
 		(SMS, Email, Calender...)	
-	
 	*...
 
 Backlog:
-	employee_inlist.csv
-	class_file_loader
-	class_info_editor
-	class_visitor_register
-	class_employee_register
-	*...
-		
+	Object:
+	object_file_loader.py
+    object_employee_info_editor.py
+    object_database_employee.py
+    object_database_visitor.py
+    Database:
+    database_main.db
+    database_visitor_log.db
 	
    

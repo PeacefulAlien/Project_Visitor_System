@@ -71,7 +71,10 @@ class DatabaseMain:
         self.conn.commit()
 
     def info_table_data_entry(self, field):
-        self.cur.execute("""INSERT INTO EmployeeInfo VALUES(?, ?, ?, ?, ?, ?, ?, ?);""", field)
+
+        sql_string_04 = ''
+
+        self.cur.execute("""INSERT INTO EmployeeInfo VALUES({});""".format(sql_string_04), field)
         self.conn.commit()
     # functions regarding info_table
 
